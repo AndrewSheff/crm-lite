@@ -6,6 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   build-and-push:
@@ -16,6 +17,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Lowercase image prefix
+        run: echo "IMAGE_PREFIX=$(echo '${{ env.IMAGE_PREFIX }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -30,8 +34,8 @@ jobs:
           context: ./backend
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository }}/backend:latest
-            ${{ env.REGISTRY }}/${{ github.repository }}/backend:${{ github.sha }}
+            ${{ env.IMAGE_PREFIX }}/crm-lite-backend:latest
+            ${{ env.IMAGE_PREFIX }}/crm-lite-backend:${{ github.sha }}
 
       - name: Build and push frontend
         uses: docker/build-push-action@v5
@@ -39,5 +43,5 @@ jobs:
           context: ./frontend
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository }}/frontend:latest
-            ${{ env.REGISTRY }}/${{ github.repository }}/frontend:${{ github.sha }}
+            ${{ env.IMAGE_PREFIX }}/crm-lite-frontend:latest
+            ${{ env.IMAGE_PREFIX }}/crm-lite-frontend:${{ github.sha }}
