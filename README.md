@@ -6,9 +6,10 @@
 
 <div align="center">
 
+> **[English version](README_EN.md)**
+
 # CRM Lite
 
-### Lightweight CRM for Growing Teams
 ### Легковесная CRM для растущих команд
 
 [![CI/CD](https://github.com/AndrewSheff/crm-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/AndrewSheff/crm-lite/actions)
@@ -20,88 +21,84 @@
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Manage clients, track deals on a Kanban board, analyze your sales pipeline, and get AI-powered insights — all self-hosted, zero monthly fees.**
+**Управляйте клиентами, отслеживайте сделки на канбан-доске, анализируйте воронку продаж и получайте рекомендации от ИИ — self-hosted, без ежемесячных платежей.**
 
-**Управляйте клиентами, отслеживайте сделки на канбан-доске, анализируйте воронку продаж — self-hosted, без ежемесячных платежей.**
-
-[Quick Start](#-quick-start) · [Features](#-features) · [Screenshots](#-screenshots) · [Architecture](#-architecture) · [API](#-api-documentation)
+[Быстрый старт](#-быстрый-старт) · [Возможности](#-возможности) · [Скриншоты](#-скриншоты) · [Архитектура](#-архитектура) · [API](#-документация-api)
 
 </div>
 
 ---
-
-> **The Problem:** Small businesses track clients in spreadsheets, deals in notebooks, and tasks in their heads. Enterprise CRMs cost $50-150/user/month and take weeks to set up. When a sales rep leaves, all contacts and deal history disappear.
 
 > **Проблема:** Малый бизнес ведет клиентов в Excel, сделки — в блокноте, задачи — в голове. Корпоративные CRM стоят $50-150/user/мес и требуют недель настройки. Когда менеджер уходит — вся история контактов исчезает.
 
-**CRM Lite** is a self-hosted CRM that deploys in 5 minutes. Kanban board for visual deal management, sales pipeline analytics, AI assistant for deal recommendations, and Excel import to migrate from spreadsheets instantly.
+**CRM Lite** — self-hosted CRM, которая разворачивается за 5 минут. Канбан-доска для наглядного управления сделками, аналитика воронки продаж, ИИ-ассистент с рекомендациями и импорт из Excel для мгновенной миграции с таблиц.
 
 <div align="center">
 
-| Lines of Code | API Endpoints | DB Models | Pages | Tests | Docker Services |
+| Строк кода | Эндпоинтов API | Моделей БД | Страниц | Тестов | Сервисов Docker |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| **10,000+** | **47** | **9** | **15** | **8 files** | **5** |
+| **10 000+** | **47** | **9** | **15** | **8 файлов** | **5** |
 
 </div>
 
 ---
 
-## Screenshots
+## Скриншоты
 
-| Kanban Board | Dashboard |
-|:------------:|:---------:|
+| Канбан-доска | Дашборд |
+|:------------:|:-------:|
 | ![Kanban](screenshots/kanban.png) | ![Dashboard](screenshots/dashboard.png) |
 
 ---
 
-## Features
+## Возможности
 
-**Kanban Deal Board** — visual pipeline with drag & drop (@dnd-kit). Move deals between stages, see win/loss indicators, filter by priority. Real-time stage counts and total values.
+**Канбан-доска сделок** — наглядный пайплайн с drag & drop (@dnd-kit). Перетаскивайте сделки между стадиями, смотрите индикаторы выигрыша/проигрыша, фильтруйте по приоритету. Счетчики и суммы по стадиям в реальном времени.
 
-**Client Management** — full CRUD with search, filtering, and color-coded tags. Owner-based access control. Contact history and linked deals in one place.
+**Управление клиентами** — полный CRUD с поиском, фильтрацией и цветными тегами. Контроль доступа по владельцу. История контактов и связанные сделки в одном месте.
 
-**Sales Pipeline Analytics** — dashboard with revenue trends, conversion funnel, average deal size, and win rate. Activity feed showing team actions in real time.
+**Аналитика воронки продаж** — дашборд с трендами выручки, воронкой конверсии, средним размером сделки и процентом побед. Лента активности с действиями команды в реальном времени.
 
-**AI Assistant** — Claude or GPT analyzes deals and recommends next best action. Risk assessment, closing probability, and suggested follow-up strategy.
+**ИИ-ассистент** — Claude или GPT анализирует сделки и рекомендует лучшее следующее действие. Оценка рисков, вероятность закрытия и предлагаемая стратегия дальнейших шагов.
 
-**Activities & Notes** — log calls, meetings, emails, and tasks with due dates. Pin important notes to deals. Full activity timeline per client and deal.
+**Активности и заметки** — фиксируйте звонки, встречи, письма и задачи с дедлайнами. Закрепляйте важные заметки к сделкам. Полная лента активности по каждому клиенту и сделке.
 
-**Excel Import/Export** — bulk migration from spreadsheets with column mapping and duplicate detection. Export clients and deals to XLSX for reporting.
+**Импорт/экспорт Excel** — массовая миграция из таблиц с маппингом столбцов и обнаружением дублей. Экспорт клиентов и сделок в XLSX для отчетности.
 
-**Customizable Pipeline** — define your own stages (New, Negotiation, Proposal, Closed Won, etc.) with colors and order. Adapt to any sales process.
+**Настраиваемый пайплайн** — задавайте собственные стадии (Новая, Переговоры, Предложение, Закрыта/выиграна и т.д.) с цветами и порядком. Адаптируйте под любой процесс продаж.
 
-**Role-Based Access** — Admin (full access), Manager (own clients and deals), Viewer (read-only). JWT authentication with refresh tokens.
+**Ролевой доступ** — Администратор (полный доступ), Менеджер (свои клиенты и сделки), Наблюдатель (только чтение). JWT-аутентификация с refresh-токенами.
 
-**Enterprise Security** — bcrypt password hashing, rate limiting, CORS configuration, structured JSON logging with request tracing.
+**Корпоративная безопасность** — хеширование паролей через bcrypt, rate limiting, настройка CORS, структурированное JSON-логирование с трассировкой запросов.
 
 ---
 
-## Architecture
+## Архитектура
 
 ```
 ┌──────────────────────────────────────────────────┐
-│                    Nginx :80                      │
-│               Reverse Proxy + Headers             │
+│                  Nginx :80                        │
+│           Обратный прокси + Заголовки             │
 ├──────────────────┬───────────────────────────────┤
-│  Frontend :3000  │        Backend :8000           │
+│  Фронтенд :3000  │        Бекенд :8000            │
 │  React 19 + Vite │     FastAPI + Uvicorn          │
 │  TailwindCSS v4  │     SQLAlchemy 2.0 (async)     │
-│  @dnd-kit Kanban │   ┌────────────────────────┐   │
-│  Recharts        │   │     Business Logic      │   │
-│  15 pages        │   │  Clients · Deals · AI   │   │
-│                  │   │  Activities · Export     │   │
+│  @dnd-kit Канбан │   ┌────────────────────────┐   │
+│  Recharts        │   │    Бизнес-логика        │   │
+│  15 страниц      │   │  Клиенты · Сделки · ИИ  │   │
+│                  │   │  Активности · Экспорт   │   │
 │                  │   └────────────────────────┘   │
 ├──────────────────┴───────────────────────────────┤
 │   PostgreSQL 16              Redis 7              │
-│   9 models, Alembic          Rate Limiting        │
-│   Indexes, FKs               Session Cache        │
+│   9 моделей, Alembic         Rate Limiting        │
+│   Индексы, FK                Кеш сессий           │
 └──────────────────────────────────────────────────┘
 ```
 
-### Kanban Data Flow
+### Поток данных канбан-доски
 
 ```
-User drags deal card
+Пользователь перетаскивает карточку сделки
         |
         v
   [@dnd-kit DragEnd]
@@ -111,23 +108,23 @@ User drags deal card
   { "stage_id": new_stage }
         |
         v
-  [Backend validates transition]
-  [Updates deal + creates activity log]
+  [Бекенд проверяет переход]
+  [Обновляет сделку + создает запись в ленте активности]
         |
         v
-  [React Query invalidates cache]
-  [Kanban re-renders with new position]
+  [React Query сбрасывает кеш]
+  [Канбан перерисовывается с новой позицией]
 ```
 
 ---
 
-## Quick Start
+## Быстрый старт
 
-### Prerequisites
+### Требования
 - Docker & Docker Compose v2+
-- (Optional) Anthropic or OpenAI API key for AI assistant
+- (Опционально) API-ключ Anthropic или OpenAI для ИИ-ассистента
 
-### 1. Clone and configure
+### 1. Клонирование и настройка
 
 ```bash
 git clone https://github.com/AndrewSheff/crm-lite.git
@@ -135,121 +132,121 @@ cd crm-lite
 cp .env.example .env
 ```
 
-Edit `.env`:
+Отредактируйте `.env`:
 
 ```env
-SECRET_KEY=your-random-64-char-string    # required
-ADMIN_PASSWORD=SecurePass123             # required
-ANTHROPIC_API_KEY=sk-ant-...             # optional, for AI assistant
+SECRET_KEY=your-random-64-char-string    # обязательно
+ADMIN_PASSWORD=SecurePass123             # обязательно
+ANTHROPIC_API_KEY=sk-ant-...             # опционально, для ИИ-ассистента
 ```
 
-### 2. Launch
+### 2. Запуск
 
 ```bash
 docker compose up -d
 ```
 
-### 3. Access
+### 3. Доступ
 
-| Service | URL |
-|:--------|:----|
-| Application | http://localhost |
-| API Docs (Swagger) | http://localhost/docs |
+| Сервис | URL |
+|:-------|:----|
+| Приложение | http://localhost |
+| Документация API (Swagger) | http://localhost/docs |
 
-Login with admin credentials from `.env`.
-
----
-
-## Tech Stack
-
-| Layer | Technology | Version |
-|:------|:-----------|:--------|
-| **Backend** | Python, FastAPI, SQLAlchemy (async), Alembic | 3.13, 0.115, 2.0 |
-| **Frontend** | React, TypeScript, Vite, TailwindCSS, shadcn/ui | 19, 5+, 6, v4 |
-| **Kanban** | @dnd-kit (drag & drop) | Latest |
-| **Charts** | Recharts | 2.15 |
-| **Database** | PostgreSQL | 16 |
-| **Cache** | Redis | 7 |
-| **AI** | Anthropic Claude, OpenAI GPT | Latest |
-| **Export** | openpyxl | XLSX |
-| **Auth** | JWT (access + refresh) + bcrypt | HS256 |
-| **Infra** | Docker Compose, Nginx, GitHub Actions CI/CD | Multi-stage |
-| **Logging** | structlog (JSON) | Request tracing |
+Войдите с учетными данными администратора из `.env`.
 
 ---
 
-## API Documentation
+## Технологический стек
 
-Interactive Swagger at `/docs`. **47 endpoints** across 11 groups:
-
-| Group | Prefix | Endpoints |
-|:------|:-------|:----------|
-| Auth | `/api/v1/auth` | Register, login, token refresh, profile |
-| Clients | `/api/v1/clients` | CRUD, search, filtering, tags |
-| Deals | `/api/v1/deals` | CRUD, stage transitions, AI analysis |
-| Notes | `/api/v1/notes` | Create, pin, list per deal/client |
-| Activities | `/api/v1/activities` | Log calls, meetings, tasks |
-| Tags | `/api/v1/tags` | Tag management |
-| Stages | `/api/v1/stages` | Pipeline stage configuration |
-| Users | `/api/v1/users` | User management and roles |
-| Dashboard | `/api/v1/dashboard` | Stats, funnel, revenue trends |
-| Export | `/api/v1/export` | Excel import/export |
-| Health | `/api/v1/health` | Liveness probe |
+| Слой | Технология | Версия |
+|:-----|:-----------|:-------|
+| **Бекенд** | Python, FastAPI, SQLAlchemy (async), Alembic | 3.13, 0.115, 2.0 |
+| **Фронтенд** | React, TypeScript, Vite, TailwindCSS, shadcn/ui | 19, 5+, 6, v4 |
+| **Канбан** | @dnd-kit (drag & drop) | Latest |
+| **Графики** | Recharts | 2.15 |
+| **База данных** | PostgreSQL | 16 |
+| **Кеш** | Redis | 7 |
+| **ИИ** | Anthropic Claude, OpenAI GPT | Latest |
+| **Экспорт** | openpyxl | XLSX |
+| **Авторизация** | JWT (access + refresh) + bcrypt | HS256 |
+| **Инфраструктура** | Docker Compose, Nginx, GitHub Actions CI/CD | Multi-stage |
+| **Логирование** | structlog (JSON) | Request tracing |
 
 ---
 
-## Project Structure
+## Документация API
+
+Интерактивный Swagger по адресу `/docs`. **47 эндпоинтов** в 11 группах:
+
+| Группа | Префикс | Эндпоинты |
+|:-------|:--------|:----------|
+| Авторизация | `/api/v1/auth` | Регистрация, вход, обновление токена, профиль |
+| Клиенты | `/api/v1/clients` | CRUD, поиск, фильтрация, теги |
+| Сделки | `/api/v1/deals` | CRUD, переходы между стадиями, ИИ-анализ |
+| Заметки | `/api/v1/notes` | Создание, закрепление, список по сделке/клиенту |
+| Активности | `/api/v1/activities` | Запись звонков, встреч, задач |
+| Теги | `/api/v1/tags` | Управление тегами |
+| Стадии | `/api/v1/stages` | Настройка стадий пайплайна |
+| Пользователи | `/api/v1/users` | Управление пользователями и ролями |
+| Дашборд | `/api/v1/dashboard` | Статистика, воронка, тренды выручки |
+| Экспорт | `/api/v1/export` | Импорт/экспорт Excel |
+| Здоровье | `/api/v1/health` | Liveness probe |
+
+---
+
+## Структура проекта
 
 ```
 crm-lite/
 ├── backend/
 │   ├── app/
-│   │   ├── main.py              # FastAPI app with lifespan
-│   │   ├── config.py            # Pydantic settings
-│   │   ├── database.py          # Async SQLAlchemy engine
-│   │   ├── api/v1/              # 11 REST API routers
-│   │   ├── models/              # 9 SQLAlchemy models
-│   │   ├── schemas/             # Pydantic v2 schemas
-│   │   ├── services/            # Business logic + AI
-│   │   └── core/                # Security, logging, exceptions
-│   ├── tests/                   # Pytest tests (8 files)
-│   ├── alembic/                 # Database migrations
+│   │   ├── main.py              # FastAPI-приложение с lifespan
+│   │   ├── config.py            # Настройки Pydantic
+│   │   ├── database.py          # Асинхронный движок SQLAlchemy
+│   │   ├── api/v1/              # 11 REST API роутеров
+│   │   ├── models/              # 9 моделей SQLAlchemy
+│   │   ├── schemas/             # Схемы Pydantic v2
+│   │   ├── services/            # Бизнес-логика + ИИ
+│   │   └── core/                # Безопасность, логирование, исключения
+│   ├── tests/                   # Тесты Pytest (8 файлов)
+│   ├── alembic/                 # Миграции базы данных
 │   └── Dockerfile
 ├── frontend/
 │   ├── src/
-│   │   ├── api/                 # Axios API clients
-│   │   ├── components/          # UI + Kanban board
-│   │   ├── contexts/            # Auth context
-│   │   ├── pages/               # 15 page components
-│   │   └── lib/                 # Utilities
+│   │   ├── api/                 # API-клиенты Axios
+│   │   ├── components/          # UI + канбан-доска
+│   │   ├── contexts/            # Контекст авторизации
+│   │   ├── pages/               # 15 компонентов страниц
+│   │   └── lib/                 # Утилиты
 │   └── Dockerfile
 ├── docker/nginx/
 ├── .github/workflows/           # CI/CD
-├── docker-compose.yml           # 5 services
+├── docker-compose.yml           # 5 сервисов
 └── .env.example
 ```
 
 ---
 
-## Environment Variables
+## Переменные окружения
 
-| Variable | Required | Default | Description |
-|:---------|:---------|:--------|:------------|
-| `SECRET_KEY` | Yes | -- | JWT signing key (min 32 chars) |
-| `ADMIN_PASSWORD` | Yes | -- | Initial admin password |
-| `DATABASE_URL` | No | Auto | PostgreSQL connection |
-| `REDIS_URL` | No | Auto | Redis connection |
-| `ANTHROPIC_API_KEY` | No | -- | For Claude AI assistant |
-| `OPENAI_API_KEY` | No | -- | For GPT AI assistant |
-| `LOG_LEVEL` | No | `INFO` | Logging verbosity |
-| `CORS_ORIGINS` | No | `localhost` | Allowed CORS origins |
+| Переменная | Обязательна | По умолчанию | Описание |
+|:-----------|:------------|:-------------|:---------|
+| `SECRET_KEY` | Да | -- | Ключ подписи JWT (мин. 32 символа) |
+| `ADMIN_PASSWORD` | Да | -- | Начальный пароль администратора |
+| `DATABASE_URL` | Нет | Авто | Подключение к PostgreSQL |
+| `REDIS_URL` | Нет | Авто | Подключение к Redis |
+| `ANTHROPIC_API_KEY` | Нет | -- | Для ИИ-ассистента Claude |
+| `OPENAI_API_KEY` | Нет | -- | Для ИИ-ассистента GPT |
+| `LOG_LEVEL` | Нет | `INFO` | Уровень детализации логов |
+| `CORS_ORIGINS` | Нет | `localhost` | Разрешенные CORS-источники |
 
 ---
 
-## Development
+## Разработка
 
 ```bash
-# Backend
+# Бекенд
 cd backend
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
@@ -257,19 +254,19 @@ docker compose up -d postgres redis
 alembic upgrade head
 uvicorn app.main:app --reload --port 8000
 
-# Frontend
+# Фронтенд
 cd frontend && npm install && npm run dev
 
-# Tests
+# Тесты
 cd backend && pytest tests/ -v
 
-# Lint
+# Линтинг
 ruff check backend/
 cd frontend && npm run lint && npx tsc --noEmit
 ```
 
 ---
 
-## License
+## Лицензия
 
-[MIT](LICENSE) — free for commercial use.
+[MIT](LICENSE) — можно использовать в коммерческих проектах.
