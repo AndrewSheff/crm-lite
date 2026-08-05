@@ -23,7 +23,7 @@
 
 **Manage clients, track deals on a Kanban board, analyze your sales pipeline, and get AI-powered insights — all self-hosted, zero monthly fees.**
 
-[Quick Start](#-quick-start) · [Features](#-features) · [Screenshots](#-screenshots) · [Architecture](#-architecture) · [API](#-api-documentation)
+[Quick Start](#quick-start) · [Features](#features) · [Screenshots](#screenshots) · [Architecture](#architecture) · [API](#api-documentation)
 
 </div>
 
